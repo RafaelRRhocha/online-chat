@@ -2,6 +2,8 @@ import '../styles/globals.css'
 import '../styles/main.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
+import { AppProvider } from '../data/context/AppContext'
+import { AuthProvider } from '../data/context/AuthContext'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -9,7 +11,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>To-Do List</title>
       </Head>
-      <Component {...pageProps} />
+      <AuthProvider>
+        <AppProvider>
+          <Component {...pageProps} />
+        </AppProvider>
+      </AuthProvider>
     </>
   )
 }
