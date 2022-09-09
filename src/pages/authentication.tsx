@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router';
 import { FC, useState } from 'react';
 import AuthInput from '../components/auth/AuthInput';
 import { Warning } from '../components/icons';
@@ -7,9 +6,8 @@ import { useAuth } from '../data/hook/useAuth';
 interface AuthenticationProps {}
 
 const Authentication: FC<AuthenticationProps> = ({}) => {
-  const { user, loginGoogle } = useAuth();
+  const { loginUser, registerUser , loginGoogle } = useAuth();
 
-  const router = useRouter();
   const [mode, setMode] = useState<'login' | 'register'>('login');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -20,12 +18,15 @@ const Authentication: FC<AuthenticationProps> = ({}) => {
     setTimeout(() => setError(null), time * 1000)
   }
 
-  const submitForm = () => {
-    if(mode === 'login') {
-      // router.push('/');
-      sendError('Ocorreu um erro no login')
-    } else {
-      sendError('Ocorreu um erro no cadastro')
+  const submitForm = async () => {
+    try {
+      if(mode === 'login') {
+        await loginUser(email, password)
+      } else {
+        await registerUser(email, password)
+      }
+    } catch (error) {
+      sendError(error.message ?? 'An unknown error has occurred')
     }
   }
 

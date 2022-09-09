@@ -1,11 +1,14 @@
 import Image from 'next/image';
 import type { FC } from 'react';
+import { useAuth } from '../../data/hook/useAuth';
 import { MyTasks, Home, Logout, AddTask } from '../icons';
 import ItemMenu from './ItemMenu';
 
 interface LateralMenuProps {}
 
 const LateralMenu: FC<LateralMenuProps> = ({}) => {
+  const { logout } = useAuth();
+
   return (
     <aside className="flex flex-col dark:bg-zinc-800 dark:text-zinc-200 bg-zinc-200 text-zinc-900">
       <div className="h-20 w-20 bg-gradient-to-r from-indigo-500 to-purple-800 flex items-center justify-center">
@@ -23,7 +26,7 @@ const LateralMenu: FC<LateralMenuProps> = ({}) => {
         <ItemMenu url="/mytasks" text="My Tasks" icon={MyTasks}/>
       </ul>
       <ul>
-        <ItemMenu url="/authentication" text="Exit" icon={Logout}/>
+        <ItemMenu onClickProps={ logout } url="/authentication" text="Exit" icon={Logout}/>
       </ul>
     </aside>
   );

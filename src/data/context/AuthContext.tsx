@@ -6,7 +6,11 @@ import UserModel from '../../model/user';
 
 interface AuthContextProps {
   user?: UserModel
+  loginUser?: (email: string, password: string) => Promise<void>
+  registerUser?: (email: string, password: string) => Promise<void>
   loginGoogle?: () => Promise<void>
+  logout?: () => Promise<void>
+  loading?: boolean
 }
 
 export const AuthContext = createContext<AuthContextProps>({})
@@ -16,14 +20,14 @@ interface AuthProviderProps {
 }
 
 const createUser = async (firebaseUser: firebase.User): Promise<UserModel> => {
-  const token = await firebaseUser.getIdToken()
+  const token = await firebaseUser?.getIdToken();
   return {
-    uid: firebaseUser.uid,
-    email: firebaseUser.email,
-    name: firebaseUser.displayName,
+    uid: firebaseUser?.uid,
+    email: firebaseUser?.email,
+    name: firebaseUser?.displayName,
     token,
-    provider: firebaseUser.providerData[0].providerId,
-    urlImage: firebaseUser.photoURL
+    provider: firebaseUser?.providerData[0].providerId,
+    urlImage: firebaseUser?.photoURL
   }
 }
 
@@ -58,21 +62,71 @@ export const AuthProvider: FC<AuthProviderProps> = ({children}) => {
   }
 
   const loginGoogle = async () => {
-    const resp = await firebase.auth().signInWithPopup(
-      new firebase.auth.GoogleAuthProvider()
-    )
-    configSession(resp.user);
-    router.push('/');
+    try {
+      setLoading(true);
+      const resp = await firebase.auth().signInWithPopup(
+        new firebase.auth.GoogleAuthProvider()
+      )
+      await configSession(resp.user);
+      router.push('/');
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  const loginUser = async (email, password) => {
+    try {
+      setLoading(true);
+      const resp = await firebase.auth().signInWithEmailAndPassword(
+        email, password
+      )
+      await configSession(resp.user);
+      router.push('/');
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  const registerUser = async (email, password) => {
+    try {
+      setLoading(true);
+      const resp = await firebase.auth().createUserWithEmailAndPassword(
+        email, password
+      )
+      await configSession(resp.user);
+      router.push('/');
+    } finally {
+      setLoading(false);
+    }
+  }
+
+
+  const logout = async () => {
+    try {
+      setLoading(true);
+      await firebase.auth().signOut();
+      await configSession(null)
+    } finally {
+      setLoading(false);
+    }
   }
 
   useEffect(() => {
-    const cancelObserver = firebase.auth().onIdTokenChanged(configSession);
-    return () => cancelObserver();
+    if(Cookies.get('todo-list-auth')) {
+      const cancelObserver = firebase.auth().onIdTokenChanged(configSession);
+      return () => cancelObserver();
+    } else {
+      setLoading(false)
+    }
   }, []);
 
   const data = {
     user,
-    loginGoogle
+    loginGoogle,
+    loginUser,
+    registerUser,
+    logout,
+    loading
   }
 
   return (

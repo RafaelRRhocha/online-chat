@@ -1,9 +1,7 @@
-import { createContext, FC, useState } from "react";
-
-type Theme = 'dark' | ''
+import { createContext, FC, useEffect, useState } from "react";
 
 interface AppContextProps {
-  theme?: Theme
+  theme?: string
   changeTheme?: () => void
 }
 
@@ -14,11 +12,18 @@ interface AppProviderProps {
 }
 
 export const AppProvider: FC<AppProviderProps> = ({children}) => {
-  const [getTheme, setGetTheme] = useState<Theme>('')
+  const [getTheme, setGetTheme] = useState('')
 
   const changeTheme = () => {
-    setGetTheme(getTheme === '' ? 'dark' : '')
+    const newTheme = getTheme === '' ? 'dark' : '';
+    setGetTheme(newTheme)
+    localStorage.setItem('theme', newTheme);
   }
+
+  useEffect(() => {
+    const themeLocal = localStorage.getItem('theme');
+    setGetTheme(themeLocal)
+  }, [])
 
   const data = {
     theme: getTheme,
