@@ -3,9 +3,9 @@ import 'firebase/auth'
 
 if(!firebase.apps.length) {
   firebase.initializeApp({
-    apiKey: 'AIzaSyD5xuL3obyE0ehpH94Chd_ugbDSjqDcEgU',
-    authDomain: 'todo-list-7fff3.firebaseapp.com',
-    projectId: 'todo-list-7fff3'
+    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID
   })
 }
 
