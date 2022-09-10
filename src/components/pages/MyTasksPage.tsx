@@ -1,13 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { FC, useState, useEffect } from 'react';
+import { useAppData } from '../../data/hook/useAppData';
 import { readLocalStorage, removeLocalStorage } from '../../localstorage';
 import { Trash } from '../icons';
 
 interface MyTasksPageProps {}
 
 const MyTasksPage: FC<MyTasksPageProps> = ({}) => {
-  const [localTasks, setLocalTasks] = useState([]);
-
+  const { localTasks, setLocalTasks } = useAppData();
   const removeTasks = (id: number) => {
     removeLocalStorage(id);
     setLocalTasks((old: any) => old.filter((item: any) => item.id !== id));
