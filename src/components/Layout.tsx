@@ -8,10 +8,12 @@ import LateralMenu from './templates/LateralMenu';
 interface LayoutProps {
   title: string
   subtitle: string
-  childrens?: any
+  homeOn?: boolean
+  newTaskPageOn?: boolean
+  myTasksPageOn?: boolean
 }
 
-const Layout: FC<LayoutProps> = ({ title, subtitle, childrens }) => {
+const Layout: FC<LayoutProps> = ({ title, subtitle, homeOn, newTaskPageOn, myTasksPageOn }) => {
   const { theme } = useAppData();
   return (
     <ForceAuth>
@@ -19,7 +21,7 @@ const Layout: FC<LayoutProps> = ({ title, subtitle, childrens }) => {
         <LateralMenu />
         <div className="flex flex-col w-full p-7 bg-zinc-300 dark:bg-zinc-900">
           <Header title={title} subtitle={subtitle} />
-          <Content childrens={childrens} />
+          <Content homePage={ homeOn } newTaskPage={ newTaskPageOn } myTasksPage={ myTasksPageOn } />
         </div>
       </div>
     </ForceAuth>

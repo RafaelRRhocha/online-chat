@@ -5,7 +5,7 @@ interface mytasksProps {}
 
 const mytasks: FC<mytasksProps> = ({}) => {
   return (
-    <Layout title="Minhas Tarefas" subtitle="Aqui você encontra as suas tarefas" />
+    <Layout title="Minhas Tarefas" subtitle="Aqui você encontra as suas tarefas" myTasksPageOn />
   );
 }
 

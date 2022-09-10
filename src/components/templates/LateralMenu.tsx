@@ -21,9 +21,9 @@ const LateralMenu: FC<LateralMenuProps> = ({}) => {
           </div>
       </div>
       <ul className="flex-grow">
-        <ItemMenu url="/" text="Home" icon={Home}/>
-        <ItemMenu url="/newtask" text="New Task" icon={AddTask}/>
-        <ItemMenu url="/mytasks" text="My Tasks" icon={MyTasks}/>
+        <ItemMenu url="/" text="Home" icon={Home} />
+        <ItemMenu url="/newtask" text="New Task" icon={AddTask} />
+        <ItemMenu url="/mytasks" text="My Tasks" icon={MyTasks} local />
       </ul>
       <ul>
         <ItemMenu onClickProps={ logout } url="/authentication" text="Exit" icon={Logout}/>

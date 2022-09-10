@@ -5,7 +5,7 @@ interface newtaskProps {}
 
 const newtask: FC<newtaskProps> = ({}) => {
   return (
-    <Layout title="Criar Tarefa" subtitle="Tela de Criar Tarefas Aq"/>
+    <Layout title="Criar Tarefa" subtitle="Tela de Criar Tarefas Aq" newTaskPageOn />
   );
 }
 
