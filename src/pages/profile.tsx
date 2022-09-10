@@ -1,10 +1,11 @@
 import type { FC } from 'react';
+import Layout from '../components/Layout';
 
 interface profileProps {}
 
 const profile: FC<profileProps> = ({}) => {
   return (
-    <p>página de perfil</p>
+    <Layout title="Your Profile" subtitle="Tela de Profile" profilePageOn />
   );
 }
 export default profile;

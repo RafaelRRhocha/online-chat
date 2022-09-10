@@ -1,11 +1,9 @@
 import { FC, useState } from 'react';
-import { useAppData } from '../../data/hook/useAppData';
 import { readLocalStorage, saveLocalStorage } from '../../localstorage';
 
 interface NewTasksPageProps {}
 
 const NewTasksPage: FC<NewTasksPageProps> = ({}) => {
-  const { setLocalTasks } = useAppData();
   const [newTask, setNewTask] = useState('');
 
   const read = readLocalStorage();
@@ -20,7 +18,6 @@ const NewTasksPage: FC<NewTasksPageProps> = ({}) => {
           task: newTask
         });
         setNewTask('');
-        setLocalTasks(read);
       }} >salvar</button>
     </div>
   );

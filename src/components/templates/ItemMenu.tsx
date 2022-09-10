@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { FC } from 'react';
-import { useAppData } from '../../data/hook/useAppData';
+import { readLocalStorage } from '../../localstorage';
 
 interface ItemMenuProps {
   url?: string
@@ -11,10 +11,10 @@ interface ItemMenuProps {
 }
 
 const ItemMenu: FC<ItemMenuProps> = ({ url, text, icon, onClickProps, local }) => {
-  const { localTasks } = useAppData();
+  const localTasks = readLocalStorage();
   return (
     <li onClick={ onClickProps } className="hover:bg-zinc-300 dark:hover:bg-zinc-900 transition-colors cursor-pointer select-none dark:bg-zinc-800 dark:text-zinc-200 bg-zinc-200 text-zinc-900">
-      {url ? (
+      {!onClickProps ? (
         <Link href={ url }>
           <a className="flex flex-col gap-2 justify-center items-center h-20 w-20">
             <div className="flex items-center gap-2">
