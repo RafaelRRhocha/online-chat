@@ -35,7 +35,7 @@ const Authentication: FC<AuthenticationProps> = ({}) => {
       <div className="md:w-1/2 hidden md:block">
         <picture>
             <img
-              src="https://source.unsplash.com/random"
+              src="https://picsum.photos/1000"
               alt="image authentication"
               className="h-screen w-full object-cover"
             />
