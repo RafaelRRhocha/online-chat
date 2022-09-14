@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import type { FC } from 'react';
 import { useAuth } from '../../data/hook/useAuth';
 import { MyTasks, Home, Logout, AddTask } from '../icons';
@@ -23,7 +22,7 @@ const LateralMenu: FC<LateralMenuProps> = ({}) => {
       <ul className="flex-grow">
         <ItemMenu url="/" text="Home" icon={Home} />
         <ItemMenu url="/newtask" text="New Task" icon={AddTask} />
-        <ItemMenu url="/mytasks" text="My Tasks" icon={MyTasks} local />
+        <ItemMenu url="/mytasks" text="My Tasks" icon={MyTasks} />
       </ul>
       <ul>
         <ItemMenu onClickProps={ logout } url="/authentication" text="Exit" icon={Logout}/>
