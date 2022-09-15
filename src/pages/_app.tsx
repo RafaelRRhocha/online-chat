@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>To-Do List</title>
+        <title>Travel Village</title>
       </Head>
       <AuthProvider>
         <AppProvider>

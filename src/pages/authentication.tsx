@@ -58,7 +58,7 @@ const Authentication: FC<AuthenticationProps> = ({}) => {
         </button>
         <hr className="my-6 border-zinc-300 w-full" />
         <button onClick={ loginGoogle } className="w-full bg-red-500 hover:bg-red-400 text-zinc-200 rounded-lg px-4 py-3 transition-colors">
-          Faça login com o Google
+          Entre com o Google
         </button>
 
         {mode === 'login' ? (
