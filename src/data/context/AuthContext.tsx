@@ -33,11 +33,11 @@ const createUser = async (firebaseUser: firebase.User): Promise<UserModel> => {
 
 const manageCookie = (looged: boolean) => {
   if(looged) {
-    Cookies.set('todo-list-auth', looged, {
-      expires: 15
+    Cookies.set('travel-village-auth', looged, {
+      expires: 10
     })
   } else {
-    Cookies.remove('todo-list-auth')
+    Cookies.remove('travel-village-auth')
   }
 }
 
@@ -112,7 +112,7 @@ export const AuthProvider: FC<AuthProviderProps> = ({children}) => {
   }
 
   useEffect(() => {
-    if(Cookies.get('todo-list-auth')) {
+    if(Cookies.get('travel-village-auth')) {
       const cancelObserver = firebase.auth().onIdTokenChanged(configSession);
       return () => cancelObserver();
     } else {
