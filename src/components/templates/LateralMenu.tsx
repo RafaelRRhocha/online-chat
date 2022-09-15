@@ -25,7 +25,7 @@ const LateralMenu: FC<LateralMenuProps> = ({}) => {
         <ItemMenu url="/mytasks" text="My Tasks" icon={MyTasks} />
       </ul>
       <ul>
-        <ItemMenu onClickProps={ logout } url="/authentication" text="Exit" icon={Logout}/>
+        <ItemMenu onClickProps={ logout } url="/authentication" text="Sair" icon={Logout}/>
       </ul>
     </aside>
   );

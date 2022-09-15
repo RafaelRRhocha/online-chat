@@ -26,7 +26,7 @@ const Authentication: FC<AuthenticationProps> = ({}) => {
         await registerUser(email, password)
       }
     } catch (error) {
-      sendError(error.message ?? 'An unknown error has occurred')
+      sendError(error.message ?? 'Um erro desconhecido ocorreu')
     }
   }
 
@@ -42,7 +42,7 @@ const Authentication: FC<AuthenticationProps> = ({}) => {
         </picture>
       </div>
       <div className="md:w-1/2 w-full m-10">
-        <h1 className="text-2xl font-bold mb-5">{mode === 'login' ? 'Login with your account' : 'Register your account'}</h1>
+        <h1 className="text-2xl font-bold mb-5">{mode === 'login' ? 'Entre com sua conta' : 'Registre sua conta'}</h1>
         {error && (
           <div className="flex items-center justify-center bg-red-500 text-zinc-100 py-3 px-5 my-2 border border-red-700 rounded-lg transition-all">
             {Warning}
@@ -52,27 +52,27 @@ const Authentication: FC<AuthenticationProps> = ({}) => {
           </div>
         )}
         <AuthInput label="Email" value={email} type="email" valueChanged={setEmail} required />
-        <AuthInput label="Password" value={password} type="password" valueChanged={setPassword} required />
+        <AuthInput label="Senha" value={password} type="password" valueChanged={setPassword} required />
         <button onClick={ submitForm } className="w-full bg-violet-500 hover:bg-violet-400 text-zinc-200 rounded-lg px-4 py-3 mt-6 transition-colors">
-          {mode === 'login' ? 'Login' : 'Register'}
+          {mode === 'login' ? 'Entrar' : 'Registrar'}
         </button>
         <hr className="my-6 border-zinc-300 w-full" />
         <button onClick={ loginGoogle } className="w-full bg-red-500 hover:bg-red-400 text-zinc-200 rounded-lg px-4 py-3 transition-colors">
-          Login with Google
+          Faça login com o Google
         </button>
 
         {mode === 'login' ? (
           <p className="mt-8">
-            New here?
+            Novo por Aqui?
             <a onClick={() => setMode('register')} className="text-blue-500 hover:text-blue-700 font-semibold cursor-pointer ml-1">
-              Create a free account
+              Crie uma conta Gratuitamente!
             </a>
           </p>
         ) : (
           <p className="mt-8">
-            Already have an account? 
+            Já possui uma Conta?
             <a onClick={() => setMode('login')} className="text-blue-500 hover:text-blue-700 font-semibold cursor-pointer ml-1">
-              Login here
+              Entre aqui!
             </a>
           </p>
         )}

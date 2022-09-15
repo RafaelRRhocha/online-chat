@@ -7,7 +7,7 @@ const Home: NextPage = () => {
   
   return (
     <>
-      <Layout title={`Olá! ${user?.name ?? 'user'}!`} subtitle="esse é o subtitle" homeOn  />
+      <Layout title={`Olá! ${user?.name ?? 'Usuário'}!`} subtitle="esse é o subtitle" homeOn  />
     </>
   )
 }
