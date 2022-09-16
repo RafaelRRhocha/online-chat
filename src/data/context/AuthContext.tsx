@@ -33,11 +33,11 @@ const createUser = async (firebaseUser: firebase.User): Promise<UserModel> => {
 
 const manageCookie = (looged: boolean) => {
   if(looged) {
-    Cookies.set('travel-village-auth', looged, {
+    Cookies.set('online-chat-auth', looged, {
       expires: 10
     })
   } else {
-    Cookies.remove('travel-village-auth')
+    Cookies.remove('online-chat-auth')
   }
 }
 
@@ -112,7 +112,7 @@ export const AuthProvider: FC<AuthProviderProps> = ({children}) => {
   }
 
   useEffect(() => {
-    if(Cookies.get('travel-village-auth')) {
+    if(Cookies.get('online-chat-auth')) {
       const cancelObserver = firebase.auth().onIdTokenChanged(configSession);
       return () => cancelObserver();
     } else {
