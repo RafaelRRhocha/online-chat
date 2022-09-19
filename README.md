@@ -14,7 +14,7 @@
 ### Install dependencies:
 
 ```bash
-yarn
+yarn install
 ```
 
 or
@@ -26,7 +26,7 @@ npm install
 ### Run development server
 
 ```bash
-yarn dev
+yarn run dev
 ```
 
 or 

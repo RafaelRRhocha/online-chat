@@ -9,12 +9,11 @@ interface LayoutProps {
   title: string
   subtitle: string
   homeOn?: boolean
-  newTaskPageOn?: boolean
-  myTasksPageOn?: boolean
+  generalChatOn?: boolean
   profilePageOn?: boolean
 }
 
-const Layout: FC<LayoutProps> = ({ title, subtitle, homeOn, newTaskPageOn, myTasksPageOn, profilePageOn }) => {
+const Layout: FC<LayoutProps> = ({ title, subtitle, homeOn, generalChatOn, profilePageOn }) => {
   const { theme } = useAppData();
   return (
     <ForceAuth>
@@ -22,7 +21,7 @@ const Layout: FC<LayoutProps> = ({ title, subtitle, homeOn, newTaskPageOn, myTas
         <LateralMenu />
         <div className="flex flex-col w-full p-7 bg-zinc-300 dark:bg-zinc-900">
           <Header title={title} subtitle={subtitle} />
-          <Content homePage={ homeOn } newTaskPage={ newTaskPageOn } myTasksPage={ myTasksPageOn } profilePage={ profilePageOn } />
+          <Content homePage={ homeOn } generalChat={ generalChatOn } profilePage={ profilePageOn } />
         </div>
       </div>
     </ForceAuth>

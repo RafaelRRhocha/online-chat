@@ -1,17 +1,15 @@
 import type { FC } from 'react';
 import HomePage from '../pages/HomePage';
-import MyTasksPage from '../pages/MyTasksPage';
-import NewTasksPage from '../pages/NewTasksPage';
+import GeneralChat from '../pages/GeneralChat';
 import ProfilePage from '../pages/ProfilePage';
 
 interface ContentProps {
   homePage?: boolean
-  newTaskPage?: boolean
-  myTasksPage?: boolean
+  generalChat?: boolean
   profilePage?: boolean
 }
 
-const Content: FC<ContentProps> = ({ homePage, newTaskPage, myTasksPage, profilePage }) => {
+const Content: FC<ContentProps> = ({ homePage, generalChat, profilePage }) => {
   return (
     <>
       {homePage && (
@@ -19,14 +17,9 @@ const Content: FC<ContentProps> = ({ homePage, newTaskPage, myTasksPage, profile
           <HomePage />
         </div>
       )}
-      {newTaskPage && (
+      {generalChat && (
         <div className="flex flex-col mt-7">
-          <NewTasksPage />
-        </div>
-      )}
-      {myTasksPage && (
-        <div className="flex flex-col mt-7">
-          <MyTasksPage />
+          <GeneralChat />
         </div>
       )}
       {profilePage && (
