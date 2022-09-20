@@ -1,0 +1,1 @@
+export const imgStyles = `h-7 w-7 rounded-full cursor-pointer`;

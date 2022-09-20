@@ -1,7 +1,8 @@
 import type { FC } from 'react';
-import HomePage from '../pages/HomePage';
-import GeneralChat from '../pages/GeneralChat';
-import ProfilePage from '../pages/ProfilePage';
+import HomePage from '../../pages/HomePage';
+import GeneralChat from '../../pages/GeneralChat';
+import ProfilePage from '../../pages/ProfilePage';
+import * as styles from './styles';
 
 interface ContentProps {
   homePage?: boolean
@@ -13,17 +14,17 @@ const Content: FC<ContentProps> = ({ homePage, generalChat, profilePage }) => {
   return (
     <>
       {homePage && (
-        <div className="flex flex-col mt-7">
+        <div className={ styles.pagesStyles }>
           <HomePage />
         </div>
       )}
       {generalChat && (
-        <div className="flex flex-col mt-7">
+        <div className={ styles.pagesStyles }>
           <GeneralChat />
         </div>
       )}
       {profilePage && (
-        <div className="flex flex-col mt-7">
+        <div className={ styles.pagesStyles }>
           <ProfilePage />
         </div>
       )}

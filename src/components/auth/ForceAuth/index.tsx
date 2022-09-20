@@ -1,8 +1,9 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import type { FC } from 'react';
-import loadingImage from '../../../public/images/loading.gif';
-import { useAuth } from '../../data/hook/useAuth';
+import loadingImage from '../../../../public/images/loading.gif';
+import { useAuth } from '../../../data/hook/useAuth';
+import * as styles from './styles';
 
 interface ForceAuthProps {
   children: any
@@ -22,7 +23,7 @@ const ForceAuth: FC<ForceAuthProps> = ({children}) => {
 
   const renderLoading = () => {
     return (
-      <div className="flex justify-center items-center h-screen">
+      <div className={ styles.loadingStyles }>
           <Image src={loadingImage} alt="loading" />
       </div>
     )

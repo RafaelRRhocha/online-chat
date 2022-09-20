@@ -1,0 +1,1 @@
+export const pagesStyles = `flex flex-col mt-7`;

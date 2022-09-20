@@ -1,1 +1,0 @@
-export const GeneralChatClass = `input input-bordered input-ghost w-full max-w-xs absolute bottom-0`

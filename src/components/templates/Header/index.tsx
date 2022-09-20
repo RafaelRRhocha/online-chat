@@ -1,7 +1,8 @@
 import type { FC } from 'react';
-import DarkModeButton from './DarkModeButton';
-import Title from './Title';
-import UserAvatar from './UserAvatar';
+import DarkModeButton from '../DarkModeButton';
+import Title from '../Title';
+import UserAvatar from '../UserAvatar';
+import * as styles from './styles';
 
 interface HeaderProps {
   title: string
@@ -10,9 +11,9 @@ interface HeaderProps {
 
 const Header: FC<HeaderProps> = ({ title, subtitle }) => {
   return (
-    <div className="flex">
+    <div className={ styles.headerStyles }>
       <Title title={title} subtitle={subtitle} />
-      <div className="flex items-center flex-grow justify-end gap-2">
+      <div className={ styles.divStyles } >
         <DarkModeButton />
         <UserAvatar />
       </div>

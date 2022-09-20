@@ -1,4 +1,5 @@
 import type { FC } from 'react';
+import * as styles from './styles';
 
 interface AuthInputProps {
   label: string
@@ -10,14 +11,14 @@ interface AuthInputProps {
 
 const AuthInput: FC<AuthInputProps> = ({label, value, valueChanged, type, required}) => {
   return (
-    <div className="flex flex-col mt-4">
+    <div className={ styles.labelStyles }>
       <label>{label}</label>
         <input
           type={ type ?? 'text'}
           value={ value }
           onChange={e => valueChanged?.(e.target.value)}
           required={ required }
-          className="py-4 px-3 rounded-lg bg-zinc-300 mt-2 border focus:border-violet-500 focus:outline-none focus:bg-zinc-100"
+          className={ styles.inputsStyles }
         />
     </div>
   );

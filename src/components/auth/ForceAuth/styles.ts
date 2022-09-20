@@ -1,0 +1,1 @@
+export const loadingStyles = `flex justify-center items-center h-screen`;
