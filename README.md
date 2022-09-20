@@ -42,7 +42,25 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ```
 └── src
     ├── components
+                └── auth
+                        └── <Component Folder>
+                                index.tsx
+                                styles.ts
+                            <Component Folder />
+                └── icons
+                └── pages
+                        └── <Component Folder>
+                                index.tsx
+                                styles.ts
+                            <Component Folder />
+                └── templates
+                        └── <Component Folder>
+                                index.tsx
+                                styles.ts
+                            <Component Folder />
     ├── data
+            └── context
+            └── hook
     ├── firebase
     ├── model
     ├── pages
