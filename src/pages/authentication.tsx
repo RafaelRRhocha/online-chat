@@ -1,8 +1,8 @@
 import { FC, useState } from 'react';
-import AuthInput from '../../components/auth/AuthInput';
-import { Warning } from '../../components/icons';
-import { useAuth } from '../../data/hook/useAuth';
-import * as styles from './styles';
+import AuthInput from '../components/auth/AuthInput';
+import { Warning } from '../components/icons';
+import { useAuth } from '../data/hook/useAuth';
+import * as styles from '../components/auth/stylesAuth';
 
 interface AuthenticationProps {}
 
