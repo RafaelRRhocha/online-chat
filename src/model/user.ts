@@ -3,6 +3,6 @@ export default interface UserModel {
   email: string
   name: string
   token: string
-  provider: string
+  provider: any
   urlImage: string
 }
