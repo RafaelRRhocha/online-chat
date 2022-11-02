@@ -2,10 +2,10 @@ import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import { createContext, FC, useEffect, useState } from 'react';
 import firebase from '../../firebase/config';
-import UserModel from '../../model/user';
+import IUser from '../../interfaces/user';
 
 interface AuthContextProps {
-  user?: UserModel
+  user?: IUser
   loginUser?: (email: string, password: string) => Promise<void>
   registerUser?: (email: string, password: string) => Promise<void>
   loginGoogle?: () => Promise<void>
@@ -19,7 +19,7 @@ interface AuthProviderProps {
   children: any
 }
 
-const createUser = async (firebaseUser: firebase.User): Promise<UserModel> => {
+const createUser = async (firebaseUser: firebase.User): Promise<IUser> => {
   const token = await firebaseUser?.getIdToken();
   return {
     uid: firebaseUser?.uid,
@@ -43,7 +43,7 @@ const manageCookie = (looged: boolean) => {
 
 export const AuthProvider: FC<AuthProviderProps> = ({children}) => {
   const router = useRouter();
-  const [user, setUser] = useState<UserModel>(null);
+  const [user, setUser] = useState<IUser>(null);
   const [loading, setLoading] = useState(true);
 
   const configSession = async (userFirebase) => {

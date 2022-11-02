@@ -7,7 +7,7 @@ const HomePage: FC<HomePageProps> = ({}) => {
   return (
     <>
       <p className={ styles.textHome }>
-        Home Page
+        ***Em Desenvolvimento***
       </p>
     </>
   );

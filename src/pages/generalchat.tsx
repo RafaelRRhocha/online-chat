@@ -5,7 +5,7 @@ interface generalchatProps {}
 
 const generalchat: FC<generalchatProps> = ({}) => {
   return (
-    <Layout title="Chat Geral" subtitle="Bem Vindo(a) o chat geral!" generalChatOn />
+    <Layout title="Chat Geral" subtitle="Interaja com diversas pessoas no chat abaixo!" generalChatOn />
   );
 }
 

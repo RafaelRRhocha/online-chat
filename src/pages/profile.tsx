@@ -5,7 +5,8 @@ interface profileProps {}
 
 const profile: FC<profileProps> = ({}) => {
   return (
-    <Layout title="Seu Perfil" subtitle="Tela de Profile" profilePageOn />
+    <Layout title="Seu Perfil" subtitle="Veja suas informações abaixo" profilePageOn />
   );
 }
+
 export default profile;

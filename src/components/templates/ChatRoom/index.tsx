@@ -6,7 +6,7 @@ interface ChatRoomProps {}
 const ChatRoom: FC<ChatRoomProps> = ({}) => {
   return (
     <div className={ styles.div }>
-      chat será renderizado aqui
+      ***chat será renderizado aqui***
     </div>
   );
 }
